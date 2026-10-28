@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 import cv from "../../assets/Sudipto_Resume.pdf";
-import Typical from "react-typical";
+// import Typical from "react-typical";
 
 
 const sliderTextVariants = {
@@ -84,8 +84,8 @@ const Home = () => {
               <h1 className="pointer-events-none text-3xl md:text-5xl font-['Spartan'] ">
                 Sudipto Roy
               </h1>
-              <span className="pointer-events-none font-['merriweather'] italic">
-                <Typical
+              <span className="pointer-events-none font-['merriweather'] italic">FULL STACK DEVELOPER
+                {/* <Typical
                   loop={Infinity}
                   steps={[
                     "WEB DEVELOPER ",
@@ -95,7 +95,7 @@ const Home = () => {
                     "SOFTWARE ENGINEER",
                     1500,
                   ]}
-                />
+                /> */}
               </span>
               <div className="flex gap-2">
                 <a href={cv}>
