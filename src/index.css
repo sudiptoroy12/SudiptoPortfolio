@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+::-webkit-scrollbar {
+  scrollbar-width:none ; 
+}
+
+html {
+  scroll-behavior: smooth;
+  
+}
+
+
+
+
+.dark{
+  background-color: black;
+  color:white;
+}
+.light{
+  background-color: #ece8f9;
+  color: black;
+}
+
+.dropshadow{
+  filter: drop-shadow(2px 2px 20px rgb(116,201,225));
+}
+.dropshadow1{
+  filter: drop-shadow(2px 2px 20px rgb(36, 45, 45));
+}
+.dropshadow2{
+  filter: drop-shadow(2px 2px 20px rgb(43, 4, 4));
+}
+#btn:hover{
+  background:black;
+  color:rgb(116,201,225);
+}
+#form:hover{
+ filter: drop-shadow(2px 2px 20px rgb(116,201,225));
+}
+#card:hover{
+ filter: drop-shadow(2px 2px 20px rgb(116,201,225));
+}
+.boxshadow{
+  box-shadow: 2px 2px 20px rgb(116,201,225);
+}
+
+
+@media  (max-width: 768px) {
+
+  .textContainer {
+   transform: none !important;
+   
+  }
+
+}
