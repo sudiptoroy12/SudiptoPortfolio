@@ -26,33 +26,33 @@ const ImageSlider = () => {
   const items = [
     {
       id: 1,
-      title: "React app",
-      img: "https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://project1",
+      title: "FITLOG",
+      img: "/public/Fitlog.PNG",
+      link: "https://fitlog-pink-two.vercel.app/",
     },
     {
       id: 2,
-      title: "Next.js app",
-      img: "https://images.pexels.com/photos/4050464/pexels-photo-4050464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://project2",
+      title: "BazarDor",
+      img: "/public/BazarDor.PNG",
+      link: "https://bazar-dor-ql1w.vercel.app/",
     },
     {
       id: 3,
-      title: "Music app",
-      img: "https://images.pexels.com/photos/144429/pexels-photo-144429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://project3",
+      title: "QuickShow",
+      img: "/public/QuickShow.PNG",
+      link: "https://book-show-rouge.vercel.app/",
     },
     {
       id: 4,
-      title: "Vanilla app",
-      img: "https://images.pexels.com/photos/1087735/pexels-photo-1087735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://project4",
+      title: "DoctorsAppointment",
+      img: "/public/DoctorAppointment.PNG",
+      link: "https://doctors-appointment-tscy.vercel.app/",
     },
     {
       id: 5,
-      title: "Next.js app",
-      img: "https://images.pexels.com/photos/4050464/pexels-photo-4050464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://project5",
+      title: "MojarKhana",
+      img: "/public/MorjarKhana.PNG",
+      link: "https://mojar-khana.vercel.app/",
     },
   ];
 
@@ -83,22 +83,22 @@ const ImageSlider = () => {
                 transition={{ duration: 0.5 }}
                 
               >
-               <img className="rounded-[12px] h-48 md:h-56 lg:h-96 absolute w-[100%] " src={item.img} alt="" /> 
+               <img className="rounded-[12px] h-48 md:h-56 lg:h-96 absolute w-[100%] border " src={item.img} alt={item.title} /> 
                <div className="rounded-[12px] h-48 md:h-56 lg:h-96 flex  justify-center w-[100%] absolute hover:backdrop-blur-sm md:text-2xl font-semibold text-black  ">
-                     <a        href={item.link}>
-                  <p className="flex items-center justify-center hover:scale-110 duration-500">
+                     <a        href={item.link} >
+                  <p className="flex items-center justify-center hover:scale-110 duration-500  gap-2 font-bold  px-2 py-1  border rounded-md   bg-black  text-white dark:bg-gradient-to-r from-[#42b4cd] to-white  dark:text-black ">
                     {item.title}{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="24"
+                      height="26"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="feather feather-external-link"
+                      className="feather feather-external-link "
                     >
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
@@ -111,36 +111,7 @@ const ImageSlider = () => {
                 </motion.div>
           )
                 
-              {/* <motion.div
-                className="rounded-[12px] h-48 md:h-56 lg:h-96 flex  justify-center w-[40%] absolute hover:backdrop-blur-sm md:text-2xl font-semibold text-black  "
-                initial="center"
-                
-                animate={positions[positionIndexes[index]]}
-                variants={imageVariants}
-                transition={{ duration: 0.5 }}
-              >
-                <a href={item.link}>
-                  <p className="flex items-center justify-center hover:scale-110 duration-500">
-                    {item.title}{" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="feather feather-external-link"
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </p>
-                </a>
-              </motion.div> */}
+
             
               
         })}

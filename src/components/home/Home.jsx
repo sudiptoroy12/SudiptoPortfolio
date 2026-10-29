@@ -123,7 +123,7 @@ const Home = () => {
           <img
             src="/MyPic.jpg"
             alt="Sudipto Roy"
-            className="hidden md:block self-center mr-auto h-96 w-96 object-cover rounded-full dropshadow z-40"
+            className="hidden sm:block self-center mr-auto h-96 w-96 object-cover rounded-full dropshadow z-40"
           />
 
           <ul className="space-y-4 mr-6 dark:text-[#b0b2c3] pb-4 z-40">

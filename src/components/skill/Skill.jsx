@@ -1,48 +1,175 @@
-import React from "react";
+
 import Card from "../card/Card";
 import mern from "../../assets/mern.png";
 import js from "../../assets/javascript-icon-7.jpg";
 import react from "../../assets/react.png";
 import nextjs from "../../assets/nextjs.png";
 
+const skillGroups = [
+  {
+    number: "01",
+    title: "Frontend Development",
+    description: "Building responsive and interactive user interfaces",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+  },
+  {
+    number: "02",
+    title: "Backend Development",
+    description: "Creating server-side applications and REST APIs",
+    skills: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Authentication",
+    ],
+  },
+  {
+    number: "03",
+    title: "Database & Data Management",
+    description: "Working with data, schemas, and database operations",
+    skills: ["MongoDB", "Mongoose"],
+  },
+  {
+    number: "04",
+    title: "Tools & Workflow",
+    description: "Managing code and testing application endpoints",
+    skills: ["Git", "GitHub", "Postman", "npm"],
+  },
+];
+
 const Skill = () => {
   return (
-    <div id="Skill" className="md:h-screen max-w-6xl mx-auto flex flex-col md:flex-row  gap-24 pt-16 md:pt-0  ">
-      <div className=" flex  flex-col  gap-10   items-center justify-center">    <Card title="JAVASCRIPT" img={js} />
+    <section
+      id="Skill"
+      className="mx-auto flex min-h-screen max-w-6xl
+        flex-col items-center gap-14 px-4 py-16
+        md:flex-row md:gap-16"
+    >
+      {/* Existing Card Section - Unchanged */}
+      <div className="flex flex-col items-center justify-center gap-10">
+        <Card title="JAVASCRIPT" img={js} />
         <Card title="REACT" img={react} />
         <Card title="NEXT JS" img={nextjs} />
         <Card title="MERN STACK WEB DEVELOPER" img={mern} />
-    
       </div>
-     
-      <div className=" flex flex-1 flex-col  justify-center  gap-8  ">
-        <div className=" flex flex-col md:flex-row  items-center  gap-6 hover:scale-105 duration-200">
-          <p className="text-lg  w-36 ">HTML(70%)</p>
-          <hr className="h-2 w-[70%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
+
+      {/* Professional Technical Skills Section */}
+      <div className="w-full flex-1">
+        <div className="mb-8">
+          <p
+            className="mb-3 text-sm font-semibold uppercase
+              tracking-[0.25em] text-cyan-600
+              dark:text-[#42b4cd]"
+          >
+            My Expertise
+          </p>
+
+          <h2
+            className="mb-4 text-3xl font-bold text-gray-900
+              dark:bg-gradient-to-r dark:from-[#42b4cd]
+              dark:to-white dark:bg-clip-text
+              dark:text-transparent md:text-4xl"
+          >
+            Technical Skills
+          </h2>
+
+          <p className="max-w-xl text-sm leading-7 text-gray-600 dark:text-gray-400">
+            My full-stack development toolkit includes modern
+            frontend technologies, backend development,
+            database management, and essential development tools.
+          </p>
         </div>
-        <div className="flex-col md:flex-row   flex items-center  gap-6 hover:scale-105 duration-300">
-          <p className="text-lg w-36">CSS(70%)</p>
-          <hr className="h-2 w-[70%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
+
+        <div className="flex flex-col gap-4">
+          {skillGroups.map((group) => (
+            <div
+              key={group.number}
+              className="group rounded-2xl border border-gray-200
+                bg-white p-5 shadow-sm transition-all duration-300
+                hover:-translate-y-1 hover:border-cyan-400
+                hover:shadow-lg hover:shadow-cyan-500/5
+                dark:border-white/10 dark:bg-[#111318]
+                dark:hover:border-[#42b4cd]/60"
+            >
+              <div className="mb-4 flex items-start gap-3">
+                <span
+                  className="flex h-9 w-9 shrink-0 items-center
+                    justify-center rounded-xl bg-cyan-50
+                    text-sm font-bold text-cyan-700
+                    dark:bg-[#42b4cd]/10 dark:text-[#42b4cd]"
+                >
+                  {group.number}
+                </span>
+
+                <div>
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    {group.title}
+                  </h3>
+
+                  <p className="mt-1 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    {group.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-lg border border-gray-200
+                      bg-gray-50 px-3 py-1.5 text-xs font-medium
+                      text-gray-700 transition-colors duration-200
+                      hover:border-cyan-400 hover:bg-cyan-50
+                      hover:text-cyan-800
+                      dark:border-gray-700 dark:bg-[#1a1d24]
+                      dark:text-gray-300 dark:hover:border-[#42b4cd]
+                      dark:hover:bg-[#42b4cd]/10
+                      dark:hover:text-[#42b4cd]"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-            <div className="flex-col md:flex-row  flex items-center  gap-6 hover:scale-105 duration-300">
-          <p className="text-lg w-36 flex ">JavaScript(60%)</p>
-          <hr className="h-2 w-[60%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
-        </div>
-        <div className="flex-col md:flex-row   flex items-center  gap-6 hover:scale-105 duration-300">
-          <p className="text-lg w-36">React Js(50%)</p>
-          <hr className="h-2 w-[50%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
-        </div>
-        <div className="flex-col md:flex-row   flex items-center  gap-6 hover:scale-105 duration-300">
-          <p className="text-lg w-36">Next.Js(50%)</p>
-          <hr className="h-2 w-[50%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
-        </div>
-    
-        <div className="flex-col md:flex-row  flex items-center  gap-6 hover:scale-105 duration-300">
-          <p className="text-lg w-36">Tailwind(80%)</p>
-          <hr className="h-2 w-[80%] rounded-lg bg-gradient-to-l from-[#0b26c47c] to-[#a412ba7e] " />
+
+        {/* MERN Stack Highlight */}
+        <div
+          className="mt-5 flex flex-wrap items-center justify-between
+            gap-3 rounded-2xl border border-cyan-200
+            bg-gradient-to-r from-cyan-50 to-white p-5
+            dark:border-[#42b4cd]/20 dark:from-[#42b4cd]/10
+            dark:to-[#111318]"
+        >
+          <div>
+            <p className="font-semibold text-gray-900 dark:text-white">
+              Full Stack MERN Developer
+            </p>
+            <p className="mt-1 text-xs text-gray-600 dark:text-gray-400">
+              MongoDB · Express.js · React.js · Node.js
+            </p>
+          </div>
+
+          <span
+            className="rounded-full border border-cyan-300
+              px-3 py-1 text-xs font-semibold
+              text-cyan-800 dark:border-[#42b4cd]/40
+              dark:text-[#42b4cd]"
+          >
+            Full Stack
+          </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

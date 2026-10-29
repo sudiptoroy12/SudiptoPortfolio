@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import ProjectCard from "./ProjectCard";
+
 import ImageSlider from "./ImageSlider";
 
 const items = [
