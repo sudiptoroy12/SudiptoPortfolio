@@ -1,137 +1,232 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 const ImageSlider = () => {
-  const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
+  const [positionIndexes, setPositionIndexes] = useState([
+    0, 1, 2, 3, 4,
+  ]);
 
   const handleNext = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 1) % 5
-      );
-      return updatedIndexes;
-    });
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map((index) => (index + 1) % 5)
+    );
   };
 
   const handleBack = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 4) % 5
-      );
-
-      return updatedIndexes;
-    });
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map((index) => (index + 4) % 5)
+    );
   };
 
   const items = [
     {
       id: 1,
       title: "FITLOG",
-      img: "/public/Fitlog.PNG",
+      img: "/Fitlog.PNG",
       link: "https://fitlog-pink-two.vercel.app/",
     },
     {
       id: 2,
       title: "BazarDor",
-      img: "/public/BazarDor.PNG",
+      img: "/BazarDor.PNG",
       link: "https://bazar-dor-ql1w.vercel.app/",
     },
     {
       id: 3,
       title: "QuickShow",
-      img: "/public/QuickShow.PNG",
+      img: "/QuickShow.PNG",
       link: "https://book-show-rouge.vercel.app/",
     },
     {
       id: 4,
       title: "DoctorsAppointment",
-      img: "/public/DoctorAppointment.PNG",
+      img: "/DoctorAppointment.PNG",
       link: "https://doctors-appointment-tscy.vercel.app/",
     },
     {
       id: 5,
       title: "MojarKhana",
-      img: "/public/MorjarKhana.PNG",
+      img: "/MorjarKhana.PNG",
       link: "https://mojar-khana.vercel.app/",
     },
   ];
 
-  const positions = ["center", "left1", "left", "right", "right1"];
+  const positions = [
+    "center",
+    "left1",
+    "left",
+    "right",
+    "right1",
+  ];
 
   const imageVariants = {
-    center: { x: "0%", scale: 1, zIndex: 5 },
-    left1: { x: "-50%", scale: 0.7, zIndex: 3 },
-    left: { x: "-90%", scale: 0.5, zIndex: 2 },
-    right: { x: "90%", scale: 0.5, zIndex: 1 },
-    right1: { x: "50%", scale: 0.7, zIndex: 3 },
+    center: {
+      x: "0%",
+      scale: 1,
+      zIndex: 5,
+    },
+    left1: {
+      x: "-50%",
+      scale: 0.7,
+      zIndex: 3,
+    },
+    left: {
+      x: "-90%",
+      scale: 0.5,
+      zIndex: 2,
+    },
+    right: {
+      x: "90%",
+      scale: 0.5,
+      zIndex: 2,
+    },
+    right1: {
+      x: "50%",
+      scale: 0.7,
+      zIndex: 3,
+    },
   };
+
   return (
-    <div className="flex items-center flex-col justify-center   md:h-screen max-w-5xl mx-auto">
-      <h2 className="text-4xl text-black dark:bg-gradient-to-r from-[#42b4cd] to-white bg-clip-text dark:text-transparent  font-bold text-center pt-16 md:pt-0">
+    <section
+      className="mx-auto flex w-full max-w-5xl
+        flex-col items-center justify-center
+        overflow-hidden px-3 py-12
+        sm:px-6 sm:py-14
+        md:min-h-screen md:py-16"
+    >
+      {/* Heading */}
+      <h2
+        className="max-w-full text-center text-2xl
+          font-bold leading-tight text-black
+          dark:bg-gradient-to-r dark:from-[#42b4cd]
+          dark:to-white dark:bg-clip-text
+          dark:text-transparent
+          sm:text-3xl md:text-4xl"
+      >
         1+ YEARS EXPERIENCED IN PROJECTS
       </h2>
-      <div className="flex gap-10  w-[99%] h-52 md:h-96 justify-center items-center  mt-12 ">
-        {items.map((item,index) => {
-          return ( 
+
+      {/* Responsive Image Carousel */}
+      <div
+        className="relative mt-8 flex h-[250px] w-full
+          items-center justify-center overflow-hidden
+          sm:mt-10 sm:h-[320px]
+          md:h-[360px] lg:h-[420px]"
+      >
+        {items.map((item, index) => (
           <motion.div
-                key={item.id}
-             
-                className=" h-48 md:h-56 lg:h-96 absolute w-[40%]  "
-                initial="center"
-                animate={positions[positionIndexes[index]]}
-                variants={imageVariants}
-                transition={{ duration: 0.5 }}
-                
+            key={item.id}
+            className="group absolute inset-0 m-auto
+              aspect-[4/3] w-[82%] max-w-[560px]
+              overflow-hidden rounded-xl
+              shadow-xl sm:w-[72%]
+              md:w-[54%] lg:w-[44%]"
+            initial={false}
+            animate={positions[positionIndexes[index]]}
+            variants={imageVariants}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+          >
+            {/* Project Image */}
+            <img
+              className="h-full w-full rounded-xl
+                border border-gray-200
+                bg-white object-contain
+                dark:border-white/10 dark:bg-[#111318]"
+              src={item.img}
+              alt={`${item.title} project preview`}
+              loading="lazy"
+            />
+
+            {/* Project Link */}
+            <div
+              className="absolute inset-0 flex
+                items-start justify-center
+                rounded-xl bg-transparent
+                pt-3 transition-colors duration-300
+                group-hover:bg-black/10
+                sm:pt-4"
+            >
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${item.title} live website`}
+                className="inline-flex max-w-[95%]
+                  items-center justify-center gap-1.5
+                  rounded-md border border-white/20
+                  bg-black px-2.5 py-1.5
+                  text-xs font-bold text-white
+                  shadow-md transition-all duration-300
+                  hover:scale-105
+                  dark:bg-gradient-to-r
+                  dark:from-[#42b4cd] dark:to-white
+                  dark:text-black
+                  sm:gap-2 sm:px-3 sm:py-2
+                  sm:text-sm md:text-base"
               >
-               <img className="rounded-[12px] h-48 md:h-56 lg:h-96 absolute w-[100%] border " src={item.img} alt={item.title} /> 
-               <div className="rounded-[12px] h-48 md:h-56 lg:h-96 flex  justify-center w-[100%] absolute hover:backdrop-blur-sm md:text-2xl font-semibold text-black  ">
-                     <a        href={item.link} >
-                  <p className="flex items-center justify-center hover:scale-110 duration-500  gap-2 font-bold  px-2 py-1  border rounded-md   bg-black  text-white dark:bg-gradient-to-r from-[#42b4cd] to-white  dark:text-black ">
-                    {item.title}{" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="26"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="feather feather-external-link "
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </p>
-                </a>
-                </div>
+                <span className="break-words">
+                  {item.title}
+                </span>
 
-                </motion.div>
-          )
-                
-
-            
-              
-        })}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="shrink-0 sm:h-5 sm:w-5"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
-      <div className="flex flex-row gap-3">
+      {/* Back and Next Buttons */}
+      <div className="mt-6 flex items-center justify-center gap-4 sm:mt-8">
         <button
-          className="rounded-lg mt-10 px-3  font-bold  bg-black  text-white dark:bg-gradient-to-r from-[#42b4cd] to-white  dark:text-black hover:scale-110 duration-500  "
+          type="button"
           onClick={handleBack}
+          className="min-w-24 rounded-lg bg-black
+            px-5 py-2.5 text-sm font-bold text-white
+            transition-all duration-300
+            hover:scale-105
+            dark:bg-gradient-to-r
+            dark:from-[#42b4cd] dark:to-white
+            dark:text-black sm:min-w-28 sm:text-base"
         >
           Back
         </button>
+
         <button
-          className="rounded-lg mt-10 px-3  font-bold   bg-black  text-white dark:bg-gradient-to-r from-[#42b4cd] to-white  dark:text-black hover:scale-110 duration-500 "
+          type="button"
           onClick={handleNext}
+          className="min-w-24 rounded-lg bg-black
+            px-5 py-2.5 text-sm font-bold text-white
+            transition-all duration-300
+            hover:scale-105
+            dark:bg-gradient-to-r
+            dark:from-[#42b4cd] dark:to-white
+            dark:text-black sm:min-w-28 sm:text-base"
         >
           Next
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
