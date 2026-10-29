@@ -38,7 +38,7 @@ const Links = ({ onLinkClick }) => {
     >
       {items.map((item) => (
         <motion.a
-          className="z-20 text-3xl"
+          className="z-20 text-3xl text-ink dark:text-white"
           href={`#${item}`}
           key={item}
           variants={itemVariants}

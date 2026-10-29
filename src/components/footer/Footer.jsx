@@ -14,7 +14,7 @@ const Footer = () => {
     <footer
       id="Contact"
       className="relative overflow-hidden border-t
-        border-gray-200 bg-gray-50 text-gray-700
+        border-edge bg-transparent text-ink-soft
         dark:border-white/10 dark:bg-[#090b10]
         dark:text-gray-300"
     >
@@ -23,7 +23,7 @@ const Footer = () => {
         aria-hidden="true"
         className="pointer-events-none absolute -left-32
           top-10 h-64 w-64 rounded-full
-          bg-cyan-400/10 blur-[100px]
+          bg-[#42b4cd]/15 blur-[100px]
           dark:bg-[#42b4cd]/10"
       />
 
@@ -31,15 +31,16 @@ const Footer = () => {
         aria-hidden="true"
         className="pointer-events-none absolute -right-32
           bottom-10 h-72 w-72 rounded-full
-          bg-purple-400/10 blur-[100px]"
+          bg-[#7c5ce7]/15 blur-[100px]
+          dark:bg-purple-400/10"
       />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {/* Call To Action */}
         <div
           className="relative -mt-1 overflow-hidden
-            rounded-b-2xl border border-gray-200
-            bg-white p-6 shadow-sm
+            rounded-b-2xl border border-edge
+            bg-surface p-6 shadow-sm
             dark:border-white/10 dark:bg-[#11151c]
             sm:p-10 md:p-12"
         >
@@ -59,7 +60,7 @@ const Footer = () => {
             <div className="max-w-xl">
               <p
                 className="mb-3 text-xs font-bold uppercase
-                  tracking-[0.25em] text-cyan-700
+                  tracking-[0.25em] text-accent
                   dark:text-[#6bd3d3]"
               >
                 Let's Connect
@@ -67,7 +68,7 @@ const Footer = () => {
 
               <h2
                 className="text-2xl font-bold leading-tight
-                  text-gray-900 dark:text-white
+                  text-ink
                   sm:text-3xl md:text-4xl"
               >
                 Have a project in mind?
@@ -82,8 +83,8 @@ const Footer = () => {
 
               <p
                 className="mt-4 max-w-lg text-sm
-                  leading-7 text-gray-600
-                  dark:text-gray-400 sm:text-base"
+                  leading-7 text-ink-soft
+                  sm:text-base"
               >
                 I'm a Full Stack MERN Developer who enjoys
                 building responsive web applications and
@@ -151,15 +152,14 @@ const Footer = () => {
                 SR
               </span>
 
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
+              <span className="text-xl font-bold text-ink">
                 Sudipto Roy
               </span>
             </a>
 
             <p
               className="mt-5 max-w-sm text-sm
-                leading-7 text-gray-600
-                dark:text-gray-400"
+                leading-7 text-ink-soft"
             >
               Full Stack MERN Developer focused on
               building responsive interfaces, practical
@@ -169,7 +169,7 @@ const Footer = () => {
 
             <p
               className="mt-4 text-sm font-medium
-                text-cyan-700 dark:text-[#6bd3d3]"
+                text-accent dark:text-[#6bd3d3]"
             >
               Code. Create. Improve.
             </p>
@@ -177,7 +177,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white">
+            <h3 className="mb-5 text-sm font-bold uppercase tracking-widest text-ink">
               Quick Links
             </h3>
 
@@ -188,8 +188,8 @@ const Footer = () => {
                     <a
                       href={item.href}
                       className="group inline-flex items-center
-                        gap-2 text-sm transition-colors
-                        duration-200 hover:text-cyan-700
+                        gap-2 text-sm text-ink-soft transition-colors
+                        duration-200 hover:text-[#0e7490]
                         dark:hover:text-[#6bd3d3]"
                     >
                       <span
@@ -207,11 +207,11 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white">
+            <h3 className="mb-5 text-sm font-bold uppercase tracking-widest text-ink">
               Find Me Online
             </h3>
 
-            <p className="mb-5 text-sm leading-6 text-gray-600 dark:text-gray-400">
+            <p className="mb-5 text-sm leading-6 text-ink-soft">
               Explore my work, follow my development journey,
               or connect with me professionally.
             </p>
@@ -226,10 +226,10 @@ const Footer = () => {
                 title="GitHub"
                 className="flex h-11 w-11 items-center
                   justify-center rounded-xl border
-                  border-gray-200 bg-white
+                  border-edge bg-surface
                   transition-all duration-300
                   hover:-translate-y-1 hover:border-[#42b4cd]
-                  hover:text-cyan-700
+                  hover:text-[#0e7490]
                   dark:border-white/10 dark:bg-white/5
                   dark:text-gray-300
                   dark:hover:text-[#6bd3d3]"
@@ -259,10 +259,10 @@ const Footer = () => {
                 title="LinkedIn"
                 className="flex h-11 w-11 items-center
                   justify-center rounded-xl border
-                  border-gray-200 bg-white
+                  border-edge bg-surface
                   transition-all duration-300
                   hover:-translate-y-1 hover:border-[#42b4cd]
-                  hover:text-cyan-700
+                  hover:text-[#0e7490]
                   dark:border-white/10 dark:bg-white/5
                   dark:text-gray-300
                   dark:hover:text-[#6bd3d3]"
@@ -286,19 +286,18 @@ const Footer = () => {
         <div
           className="flex flex-col items-center
             justify-between gap-4 border-t
-            border-gray-200 py-6 text-center
-            dark:border-white/10
+            border-edge py-6 text-center
             sm:flex-row sm:text-left"
         >
-          <p className="text-xs leading-6 text-gray-500 dark:text-gray-400 sm:text-sm">
+          <p className="text-xs leading-6 text-ink-soft sm:text-sm">
             © {currentYear} Sudipto Roy. All rights reserved.
           </p>
 
           <a
             href="#Home"
             className="inline-flex items-center gap-2
-              text-xs font-medium text-gray-500
-              transition-colors hover:text-cyan-700
+              text-xs font-medium text-ink-soft
+              transition-colors hover:text-[#0e7490]
               dark:text-gray-400
               dark:hover:text-[#6bd3d3] sm:text-sm"
           >

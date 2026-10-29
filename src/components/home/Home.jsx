@@ -101,7 +101,7 @@ const Home = () => {
             top-[58%] z-0 -translate-y-1/2
             select-none whitespace-nowrap
             text-[clamp(4rem,25vw,6rem)] font-bold leading-none
-            text-[#0f8bd340] dark:text-[#ffffff12]
+            text-[#0e749040] dark:text-[#ffffff12]
             sm:hidden"
           variants={mobileSliderTextVariants}
           initial="initial"
@@ -116,7 +116,7 @@ const Home = () => {
           className="pointer-events-none absolute bottom-8 left-0
             z-0 hidden select-none whitespace-nowrap
             text-[20vh] font-bold leading-none
-            text-[#0f8bd329] dark:text-[#ffffff09]
+            text-[#0e749029] dark:text-[#ffffff09]
             sm:block md:text-[25vh] lg:text-[35vh]"
           variants={sliderTextVariants}
           initial="initial"
@@ -196,17 +196,14 @@ const Home = () => {
                 text-center md:items-start md:text-left"
             >
               <h2
-                className="text-xl font-bold text-black
-                  dark:bg-gradient-to-r dark:from-[#42b4cd]
-                  dark:to-white dark:bg-clip-text
-                  dark:text-transparent"
+                className="section-title text-xl font-bold"
               >
                 I'm
               </h2>
 
               <h1
                 className="break-words text-3xl font-bold
-                  text-gray-900 dark:text-white
+                  text-ink
                   sm:text-4xl md:text-5xl lg:text-6xl"
               >
                 Sudipto Roy
@@ -228,7 +225,7 @@ const Home = () => {
                       ease: "easeInOut",
                     }}
                     className="block whitespace-nowrap
-                      text-xs italic text-black
+                      text-xs italic text-[#0e7490]
                       dark:text-[#6bd3d3]
                       sm:text-sm md:text-base"
                   >
@@ -246,30 +243,14 @@ const Home = () => {
                 <a
                   href={cv}
                   download
-                  className="relative z-10 inline-flex
-                    items-center justify-center
-                    rounded-lg bg-black px-4 py-3
-                    text-sm font-bold text-white
-                    transition-transform duration-300
-                    hover:scale-105
-                    dark:bg-gradient-to-r
-                    dark:from-[#42b4cd] dark:to-white
-                    dark:text-black sm:text-base"
+                  className="btn-primary relative z-10"
                 >
                   Download CV
                 </a>
 
                 <a
                   href="#About"
-                  className="group relative z-10 inline-flex
-                    items-center justify-center gap-2
-                    rounded-lg bg-black px-4 py-3
-                    text-sm font-bold text-white
-                    transition-transform duration-300
-                    hover:scale-105
-                    dark:bg-gradient-to-r
-                    dark:from-[#42b4cd] dark:to-white
-                    dark:text-black sm:text-base"
+                  className="group btn-primary relative z-10"
                 >
                   About me
 
@@ -310,10 +291,11 @@ const Home = () => {
               className="absolute -inset-3 rounded-full
                 bg-gradient-to-tr from-[#42b4cd]/50
                 via-[#8c75ff]/30 to-[#42b4cd]/10
-                opacity-80 blur-xl
+                opacity-60 blur-xl
                 transition-transform duration-700
                 group-hover:scale-110
-                sm:-inset-5"
+                sm:-inset-5
+                dark:opacity-80"
             />
 
             {/* Decorative Ring */}
@@ -343,7 +325,7 @@ const Home = () => {
           <ul
             className="order-3 flex items-center
               justify-center gap-5 pb-2
-              text-gray-700 dark:text-[#b0b2c3]
+              text-ink-soft
               md:order-none md:mr-2
               md:flex-col md:gap-6 md:pb-4"
             aria-label="Social media links"
@@ -358,7 +340,7 @@ const Home = () => {
                   title={name}
                   className="inline-flex rounded-md p-1
                     transition-all duration-300
-                    hover:-translate-y-1 hover:text-blue-600
+                    hover:-translate-y-1 hover:text-[#0e7490]
                     dark:hover:text-[#6bd3d3]
                     focus-visible:outline
                     focus-visible:outline-2
@@ -374,15 +356,8 @@ const Home = () => {
         {/* My Works Button */}
         <a
           href="#Projects"
-          className="relative z-10 mx-auto mb-8
-            inline-flex items-center gap-2
-            rounded-lg bg-black px-5 py-3
-            text-sm font-bold text-white
-            transition-transform duration-300
-            hover:scale-105
-            dark:bg-gradient-to-r
-            dark:from-[#42b4cd] dark:to-white
-            dark:text-black sm:mb-10 sm:text-base"
+          className="btn-primary relative z-10 mx-auto mb-8
+            sm:mb-10"
         >
           My works
 

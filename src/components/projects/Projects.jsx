@@ -80,7 +80,7 @@ const Single = ({ item }) => {
   const ref = useRef(null);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
-  // Enable the vertical scroll animation only at 1024px and above.
+  // Enable the scroll animation on screens 1024px and wider.
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
@@ -113,45 +113,52 @@ const Single = ({ item }) => {
           sm:gap-9 sm:px-6
           lg:flex-row lg:gap-12 lg:px-8"
       >
-        {/* Responsive Project Image */}
+        {/* Project Image */}
         <div
           ref={ref}
           className="group relative aspect-[4/3] w-full
-            max-w-2xl flex-1 overflow-hidden rounded-xl
-            border border-gray-200 bg-gray-100 shadow-lg
-            transition-transform duration-500
-            hover:scale-[1.02]
-            dark:border-white/10 dark:bg-[#111318]
+            max-w-2xl flex-1 rounded-xl
+            border border-edge bg-surface-soft shadow-lg
+            transition-transform duration-500 ease-in-out
+            hover:scale-105
+            dark:border-white/10 dark:bg-[#11151c]
             sm:aspect-video
             lg:aspect-[4/3] lg:max-w-none"
         >
-          {/* Project Title */}
+          {/* Project Title Badge: Hover on Desktop */}
           <a
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${item.title} live demo`}
             className="absolute left-1/2 top-4 z-10
-              -translate-x-1/2"
+              -translate-x-1/2
+              translate-y-0 opacity-100
+              transition-all duration-300 ease-in-out
+              md:translate-y-2 md:opacity-0
+              md:group-hover:translate-y-0
+              md:group-hover:opacity-100
+              md:group-focus-within:translate-y-0
+              md:group-focus-within:opacity-100"
           >
             <span
               className="relative flex w-max items-center gap-2
                 rounded-lg bg-[#6bd3d3] px-4 py-2
                 text-sm font-semibold text-black shadow-md
                 transition-transform duration-300
-                group-hover:-translate-y-1
-                after:absolute after:-bottom-2 after:left-1/2
-                after:h-4 after:w-4 after:-translate-x-1/2
-                after:rotate-45 after:bg-[#6bd3d3]
-                sm:text-base"
+                after:absolute after:-bottom-2
+                after:left-1/2 after:h-4 after:w-4
+                after:-translate-x-1/2 after:rotate-45
+                after:bg-[#6bd3d3] sm:text-base"
             >
               {item.title}
               <ExternalLinkIcon />
             </span>
           </a>
 
+          {/* Project Screenshot */}
           <img
-            className="h-full w-full object-contain"
+            className="h-full w-full rounded-xl object-contain"
             src={item.img}
             alt={`${item.title} project preview`}
             loading="lazy"
@@ -167,26 +174,22 @@ const Single = ({ item }) => {
         >
           <p
             className="text-xs font-semibold uppercase
-              tracking-[0.25em] text-cyan-700
+              tracking-[0.25em] text-accent
               dark:text-[#6bd3d3]"
           >
             Featured Project
           </p>
 
           <h2
-            className="break-words text-2xl font-bold
-              text-gray-900
-              dark:bg-gradient-to-r dark:from-[#42b4cd]
-              dark:to-white dark:bg-clip-text
-              dark:text-transparent
+            className="section-title break-words text-2xl
               sm:text-3xl md:text-4xl"
           >
             {item.title}
           </h2>
 
           <p
-            className="text-sm leading-7 text-gray-600
-              dark:text-gray-300 sm:text-base"
+            className="text-sm leading-7 text-ink-soft
+              sm:text-base"
           >
             {item.desc}
           </p>
@@ -199,11 +202,10 @@ const Single = ({ item }) => {
             {item.tech.map((technology) => (
               <span
                 key={technology}
-                className="rounded-full border border-gray-200
-                  bg-gray-100 px-3 py-1.5 text-xs font-medium
-                  text-gray-700
-                  dark:border-white/10 dark:bg-white/5
-                  dark:text-gray-300"
+                className="rounded-full border border-edge
+                  bg-surface-soft px-3 py-1.5 text-xs font-medium
+                  text-ink-soft dark:border-white/10
+                  dark:bg-white/5 dark:text-gray-300"
               >
                 {technology}
               </span>
@@ -214,8 +216,7 @@ const Single = ({ item }) => {
           <div
             className="mt-2 flex w-full flex-col gap-3
               min-[400px]:flex-row min-[400px]:flex-wrap
-              min-[400px]:justify-center
-              lg:justify-start"
+              min-[400px]:justify-center lg:justify-start"
           >
             <a
               href={item.link}
@@ -224,8 +225,8 @@ const Single = ({ item }) => {
               aria-label={`Open ${item.title} live website`}
               className="inline-flex w-full items-center
                 justify-center gap-2 rounded-lg
-                bg-[#6bd3d3] px-4 py-3
-                text-sm font-semibold text-black
+                bg-[#6bd3d3] px-4 py-3 text-sm
+                font-semibold text-black
                 transition-all duration-300
                 hover:-translate-y-1 hover:bg-[#42b4cd]
                 min-[400px]:w-auto sm:px-5"
@@ -241,12 +242,11 @@ const Single = ({ item }) => {
               aria-label={`View ${item.title} GitHub repository`}
               className="inline-flex w-full items-center
                 justify-center gap-2 rounded-lg
-                border border-gray-300 px-4 py-3
-                text-sm font-semibold text-gray-800
+                border border-edge px-4 py-3
+                text-sm font-semibold text-ink
                 transition-all duration-300
-                hover:-translate-y-1
-                hover:border-[#42b4cd]
-                hover:text-cyan-700
+                hover:-translate-y-1 hover:border-[#42b4cd]
+                hover:text-[#0e7490]
                 dark:border-white/20 dark:text-white
                 dark:hover:text-[#6bd3d3]
                 min-[400px]:w-auto sm:px-5"
@@ -280,16 +280,12 @@ const Projects = () => {
 
       {/* Section Heading */}
       <div
-        className="sticky top-0 z-20
-          bg-white/80 px-4 pb-3 pt-8
-          text-center backdrop-blur-md
-          dark:bg-black/80 sm:pt-10 lg:pt-16"
+        className="sticky top-0 z-20 bg-[#f5f8fc]/80
+          px-4 pb-3 pt-8 text-center backdrop-blur-md
+          dark:bg-[#090b10]/80 sm:pt-10 lg:pt-16"
       >
         <h1
-          className="text-3xl font-bold text-gray-900
-            dark:bg-gradient-to-r dark:from-[#42b4cd]
-            dark:to-white dark:bg-clip-text
-            dark:text-transparent
+          className="section-title text-3xl
             sm:text-4xl md:text-5xl"
         >
           Featured Works
@@ -297,8 +293,8 @@ const Projects = () => {
 
         <div
           className="mx-auto mt-4 h-1.5 w-full max-w-6xl
-            overflow-hidden rounded-full
-            bg-gray-200 dark:bg-white/10"
+            overflow-hidden rounded-full bg-edge
+            dark:bg-white/10"
         >
           <motion.div
             style={{ scaleX }}

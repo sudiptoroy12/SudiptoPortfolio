@@ -1,34 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import { IoHomeOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { RiServiceLine } from "react-icons/ri";
 import { BiBook } from "react-icons/bi";
 import { FiPhoneCall } from "react-icons/fi";
+import { useTheme } from "../../context/ThemeContext";
 
 
 const Navbar = () => {
     const[activeNav,setActiveNav]=useState('#Homepage')
-    const[darkMode,setDarkMode] = useState('dark');
-
-    const togglebutton=()=>{
-      if(darkMode === "dark"){
-        setDarkMode("light")
-      }else{
-        setDarkMode('dark')
-      }
-    }
-
-    useEffect(()=>{
-    document.body.className = darkMode;
-      console.log(darkMode);
-      
-    },[darkMode])
+    // Single theme source of truth: context syncs <html> class + localStorage.
+    const { theme, toggleTheme } = useTheme();
+    const isDark = theme === "dark";
 
   return ( 
   
   <header
-        className="flex text-white  items-center justify-between px-16 mx-auto  w-full z-20 bg-[rgba(0,0,0,0.4)] fixed "
+        className="flex text-ink items-center justify-between px-16 mx-auto  w-full z-20 bg-white/70 backdrop-blur-md border-b border-edge fixed dark:text-white dark:bg-[rgba(0,0,0,0.4)] dark:backdrop-blur-none dark:border-transparent"
       >  <div><Sidebar/>
       <a href="#Home">
       <svg className="cursor-pointer w-8  mx-10 md:mx-0"
@@ -77,17 +66,24 @@ const Navbar = () => {
      
        
             <div className='md:flex hidden  text-2xl lg:text-3xl  gap-10  '>
-      <a  href='#Home' onClick={()=>setActiveNav('#Home')} className={activeNav==='#Home' ?'font-bold text-[#6bd3d3] scale-150' : ''}><IoHomeOutline  /></a>
-      <a href='#About' onClick={()=>setActiveNav('#About')} className={activeNav==='#About' ?'font-bold text-[#6bd3d3] scale-150' : ''}><FaRegUser/></a>
-      <a href='#Skill' onClick={()=>setActiveNav('#Skill')} className={activeNav==='#Skill' ?'font-bold text-[#6bd3d3] scale-150' : ''}><RiServiceLine /></a>
-      <a href='#Projects' onClick={()=>setActiveNav('#Projects')} className={activeNav==='#Projects' ?'font-bold text-[#6bd3d3] scale-150' : ''}><BiBook /></a>
-      <a href='#Contact' onClick={()=>setActiveNav('#Contact')} className={activeNav==='#Contact' ?'font-bold text-[#6bd3d3] scale-150': ''}><FiPhoneCall /></a>
+      <a  href='#Home' onClick={()=>setActiveNav('#Home')} className={`transition-colors duration-200 hover:text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#42b4cd] dark:hover:text-[#6bd3d3] ${activeNav==='#Home' ?'font-bold text-[#0e7490] scale-150 dark:text-[#6bd3d3]' : ''}`}><IoHomeOutline  /></a>
+      <a href='#About' onClick={()=>setActiveNav('#About')} className={`transition-colors duration-200 hover:text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#42b4cd] dark:hover:text-[#6bd3d3] ${activeNav==='#About' ?'font-bold text-[#0e7490] scale-150 dark:text-[#6bd3d3]' : ''}`}><FaRegUser/></a>
+      <a href='#Skill' onClick={()=>setActiveNav('#Skill')} className={`transition-colors duration-200 hover:text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#42b4cd] dark:hover:text-[#6bd3d3] ${activeNav==='#Skill' ?'font-bold text-[#0e7490] scale-150 dark:text-[#6bd3d3]' : ''}`}><RiServiceLine /></a>
+      <a href='#Projects' onClick={()=>setActiveNav('#Projects')} className={`transition-colors duration-200 hover:text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#42b4cd] dark:hover:text-[#6bd3d3] ${activeNav==='#Projects' ?'font-bold text-[#0e7490] scale-150 dark:text-[#6bd3d3]' : ''}`}><BiBook /></a>
+      <a href='#Contact' onClick={()=>setActiveNav('#Contact')} className={`transition-colors duration-200 hover:text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#42b4cd] dark:hover:text-[#6bd3d3] ${activeNav==='#Contact' ?'font-bold text-[#0e7490] scale-150 dark:text-[#6bd3d3]': ''}`}><FiPhoneCall /></a>
     </div>
         
         
         
         <div className="flex gap-6 ">
-          <button onClick={togglebutton} className="flex border cursor-pointer rounded-full px-3 py-1 dark:bg-white dark:text-black bg-black dropshadow">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-pressed={isDark}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            className="flex border border-edge cursor-pointer rounded-full px-3 py-1 bg-surface text-ink dropshadow dark:bg-white dark:text-black dark:border-transparent"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -99,6 +95,7 @@ const Navbar = () => {
              strokeLinecap="round"
              strokeLinejoin="round"
               className="feather feather-sun"
+              aria-hidden="true"
             >
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -121,6 +118,7 @@ const Navbar = () => {
              strokeLinecap="round"
              strokeLinejoin="round"
               className="feather feather-moon"
+              aria-hidden="true"
             >
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>

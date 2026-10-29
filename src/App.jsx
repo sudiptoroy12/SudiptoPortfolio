@@ -1,4 +1,5 @@
 import "./App.css";
+import { MotionConfig } from "framer-motion";
 import Home from "./components/home/Home"
 
 
@@ -13,21 +14,23 @@ import Footer from "./components/footer/Footer";
 
 
 
-
 function App() {
- 
- 
+
+
   return (
-    <>
-   
+    <MotionConfig reducedMotion="user">
+
+   {/* Ambient cyan/purple glow layer - defined once in index.css */}
+   <div aria-hidden="true" className="ambient-glow" />
+
    <Home/>
     <About/>
    <Skill/>
-   <Projects/>
-   <Contact/>
-   <Footer/>
-  
-    </>
+    <Projects/>
+    <Contact/>
+    <Footer/>
+
+    </MotionConfig>
   )
 }
 

@@ -66,22 +66,20 @@ const Skill = () => {
         <div className="mb-8">
           <p
             className="mb-3 text-sm font-semibold uppercase
-              tracking-[0.25em] text-cyan-600
+              tracking-[0.25em] text-accent
               dark:text-[#42b4cd]"
           >
             My Expertise
           </p>
 
           <h2
-            className="mb-4 text-3xl font-bold text-gray-900
-              dark:bg-gradient-to-r dark:from-[#42b4cd]
-              dark:to-white dark:bg-clip-text
-              dark:text-transparent md:text-4xl"
+            className="section-title mb-4 text-3xl font-bold
+              md:text-4xl"
           >
             Technical Skills
           </h2>
 
-          <p className="max-w-xl text-sm leading-7 text-gray-600 dark:text-gray-400">
+          <p className="max-w-xl text-sm leading-7 text-ink-soft">
             My full-stack development toolkit includes modern
             frontend technologies, backend development,
             database management, and essential development tools.
@@ -92,11 +90,11 @@ const Skill = () => {
           {skillGroups.map((group) => (
             <div
               key={group.number}
-              className="group rounded-2xl border border-gray-200
-                bg-white p-5 shadow-sm transition-all duration-300
+              className="group rounded-2xl border border-edge
+                bg-surface p-5 shadow-sm transition-all duration-300
                 hover:-translate-y-1 hover:border-cyan-400
                 hover:shadow-lg hover:shadow-cyan-500/5
-                dark:border-white/10 dark:bg-[#111318]
+                dark:border-white/10 dark:bg-[#11151c]
                 dark:hover:border-[#42b4cd]/60"
             >
               <div className="mb-4 flex items-start gap-3">
@@ -110,11 +108,11 @@ const Skill = () => {
                 </span>
 
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-base font-semibold text-ink dark:text-white">
                     {group.title}
                   </h3>
 
-                  <p className="mt-1 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-xs leading-5 text-ink-soft">
                     {group.description}
                   </p>
                 </div>
@@ -124,9 +122,9 @@ const Skill = () => {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-lg border border-gray-200
-                      bg-gray-50 px-3 py-1.5 text-xs font-medium
-                      text-gray-700 transition-colors duration-200
+                    className="rounded-lg border border-edge
+                      bg-surface-soft px-3 py-1.5 text-xs font-medium
+                      text-ink-soft transition-colors duration-200
                       hover:border-cyan-400 hover:bg-cyan-50
                       hover:text-cyan-800
                       dark:border-gray-700 dark:bg-[#1a1d24]
@@ -148,13 +146,13 @@ const Skill = () => {
             gap-3 rounded-2xl border border-cyan-200
             bg-gradient-to-r from-cyan-50 to-white p-5
             dark:border-[#42b4cd]/20 dark:from-[#42b4cd]/10
-            dark:to-[#111318]"
+            dark:to-[#11151c]"
         >
           <div>
-            <p className="font-semibold text-gray-900 dark:text-white">
+            <p className="font-semibold text-ink dark:text-white">
               Full Stack MERN Developer
             </p>
-            <p className="mt-1 text-xs text-gray-600 dark:text-gray-400">
+            <p className="mt-1 text-xs text-ink-soft">
               MongoDB · Express.js · React.js · Node.js
             </p>
           </div>

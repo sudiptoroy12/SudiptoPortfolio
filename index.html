@@ -1,12 +1,25 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-   
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyPortfolio</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the
+      // wrong theme on reload. ThemeContext takes over on mount.
+      (function () {
+        try {
+          var theme = localStorage.getItem("portfolio-theme");
+          document.documentElement.className =
+            theme === "light" ? "light" : "dark";
+        } catch (error) {
+          document.documentElement.className = "dark";
+        }
+      })();
+    </script>
   </head>
-  <body class="dark">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

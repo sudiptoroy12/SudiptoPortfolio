@@ -1,56 +1,190 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-::-webkit-scrollbar {
-  scrollbar-width:none ; 
+
+/* ==================== Theme palettes ====================
+   Light is the default on :root; .dark (on <html>) overrides it.
+   ThemeContext + the inline script in index.html toggle the class
+   and persist it to localStorage. Semantic Tailwind colors in
+   tailwind.config.js map straight to these variables. */
+:root {
+  color-scheme: light;
+
+  --bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface-2: #edf3f8;
+  --ink: #111827;
+  --ink-soft: #4b5563;
+  --accent: #0e7490;
+  --accent-2: #42b4cd;
+  --edge: #e2e8f0;
+
+  --glow-cyan: rgba(66, 180, 205, 0.14);
+  --glow-purple: rgba(124, 92, 231, 0.1);
 }
 
+.dark {
+  color-scheme: dark;
+
+  --bg: #090b10;
+  --surface: #11151c;
+  --surface-2: #111318;
+  --ink: #f9fafb;
+  --ink-soft: #9ca3af;
+  --accent: #42b4cd;
+  --accent-2: #6bd3d3;
+  --edge: rgba(255, 255, 255, 0.1);
+
+  --glow-cyan: rgba(66, 180, 205, 0.16);
+  --glow-purple: rgba(140, 117, 255, 0.12);
+}
+
+/* ==================== Base ==================== */
 html {
   scroll-behavior: smooth;
-  
+  background-color: var(--bg);
 }
 
-
-
-
-.dark{
-  background-color: black;
-  color:white;
-}
-.light{
-  background-color: #ece8f9;
-  color: black;
+body {
+  background-color: var(--bg);
+  color: var(--ink);
 }
 
-.dropshadow{
+/* Subtle theme cross-fade: paint properties only, so Framer Motion's
+   transform/opacity animations are never affected. Placed in @layer base
+   so any element with its own Tailwind transition utility (which live in
+   the utilities layer) keeps that behavior. Disabled by prefers-reduced-motion. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+/* Ambient radial glows - one shared layer, mounted once in App.jsx.
+   Stronger in dark, softened in light; lives behind all content. */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(55rem 38rem at 12% -8%, var(--glow-cyan), transparent 60%),
+    radial-gradient(48rem 34rem at 108% 18%, var(--glow-purple), transparent 55%),
+    radial-gradient(42rem 30rem at 50% 112%, var(--glow-cyan), transparent 62%);
+}
+
+::-webkit-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ==================== Shared components ==================== */
+
+/* Section headings: solid ink in light, the signature cyan->white
+   gradient in dark. Replaces the repeated dark:bg-gradient chain. */
+@layer components {
+  .section-title {
+    color: var(--ink);
+  }
+
+  html.dark .section-title {
+    background-image: linear-gradient(to right, #42b4cd, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Primary button: solid cyan with white text in light, the existing
+     cyan->white gradient with black text in dark. */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: #0e7490;
+    color: #ffffff;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  html.dark .btn-primary {
+    background-color: transparent;
+    background-image: linear-gradient(to right, #42b4cd, #ffffff);
+    color: #000000;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    filter: brightness(1.06);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 2px;
+  }
+}
+
+/* ==================== Existing global utilities ==================== */
+.dropshadow {
   filter: drop-shadow(2px 2px 20px rgb(116,201,225));
 }
-.dropshadow1{
+
+.dropshadow1 {
   filter: drop-shadow(2px 2px 20px rgb(36, 45, 45));
 }
-.dropshadow2{
+
+.dropshadow2 {
   filter: drop-shadow(2px 2px 20px rgb(43, 4, 4));
 }
-#btn:hover{
-  background:black;
-  color:rgb(116,201,225);
-}
-#form:hover{
- filter: drop-shadow(2px 2px 20px rgb(116,201,225));
-}
-#card:hover{
- filter: drop-shadow(2px 2px 20px rgb(116,201,225));
-}
-.boxshadow{
+
+.boxshadow {
   box-shadow: 2px 2px 20px rgb(116,201,225);
 }
 
+#form:hover {
+ filter: drop-shadow(2px 2px 20px rgb(116,201,225));
+}
+
+#card:hover{
+ filter: drop-shadow(2px 2px 20px rgb(116,201,225));
+}
 
 @media  (max-width: 768px) {
 
   .textContainer {
    transform: none !important;
-   
+
   }
 
+}
+
+/* ==================== Reduced motion ==================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

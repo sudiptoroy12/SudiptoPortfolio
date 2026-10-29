@@ -98,11 +98,8 @@ const ImageSlider = () => {
     >
       {/* Heading */}
       <h2
-        className="max-w-full text-center text-2xl
-          font-bold leading-tight text-black
-          dark:bg-gradient-to-r dark:from-[#42b4cd]
-          dark:to-white dark:bg-clip-text
-          dark:text-transparent
+        className="section-title max-w-full text-center
+          text-2xl font-bold leading-tight
           sm:text-3xl md:text-4xl"
       >
         1+ YEARS EXPERIENCED IN PROJECTS
@@ -134,9 +131,9 @@ const ImageSlider = () => {
             {/* Project Image */}
             <img
               className="h-full w-full rounded-xl
-                border border-gray-200
-                bg-white object-contain
-                dark:border-white/10 dark:bg-[#111318]"
+                border border-edge
+                bg-surface object-contain
+                dark:border-white/10 dark:bg-[#11151c]"
               src={item.img}
               alt={`${item.title} project preview`}
               loading="lazy"
@@ -201,13 +198,7 @@ const ImageSlider = () => {
         <button
           type="button"
           onClick={handleBack}
-          className="min-w-24 rounded-lg bg-black
-            px-5 py-2.5 text-sm font-bold text-white
-            transition-all duration-300
-            hover:scale-105
-            dark:bg-gradient-to-r
-            dark:from-[#42b4cd] dark:to-white
-            dark:text-black sm:min-w-28 sm:text-base"
+          className="btn-primary min-w-24 sm:min-w-28"
         >
           Back
         </button>
@@ -215,13 +206,7 @@ const ImageSlider = () => {
         <button
           type="button"
           onClick={handleNext}
-          className="min-w-24 rounded-lg bg-black
-            px-5 py-2.5 text-sm font-bold text-white
-            transition-all duration-300
-            hover:scale-105
-            dark:bg-gradient-to-r
-            dark:from-[#42b4cd] dark:to-white
-            dark:text-black sm:min-w-28 sm:text-base"
+          className="btn-primary min-w-24 sm:min-w-28"
         >
           Next
         </button>

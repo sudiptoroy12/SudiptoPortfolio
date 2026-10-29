@@ -25,11 +25,8 @@ const Contact = () => {
           sm:px-4 md:text-left"
       >
         <motion.h1
-          className="w-full text-4xl font-bold
-            leading-tight text-black
-            dark:bg-gradient-to-r dark:from-[#42b4cd]
-            dark:to-white dark:bg-clip-text
-            dark:text-transparent sm:text-5xl
+          className="section-title w-full text-4xl font-bold
+            leading-tight sm:text-5xl
             md:text-5xl lg:text-6xl"
         >
           Let's work together
@@ -118,8 +115,9 @@ const Contact = () => {
           id="form"
           className="relative z-10 flex w-full
             min-w-0 flex-col gap-3 rounded-xl
-            bg-[#0d0d0dbc] p-5 shadow-xl
+            border border-edge bg-white/90 p-5 shadow-xl
             backdrop-blur-sm
+            dark:border-white/10 dark:bg-[#11151ccc]
             sm:gap-4 sm:p-8
             md:p-6 lg:p-10"
           initial={{ opacity: 0 }}
@@ -177,13 +175,7 @@ const Contact = () => {
           <button
             id="btn"
             type="submit"
-            className="relative w-full rounded-md
-              bg-black px-4 py-3 font-bold
-              text-white transition-all duration-300
-              hover:scale-[1.02]
-              dark:bg-gradient-to-r
-              dark:from-[#42b4cd] dark:to-white
-              dark:text-black sm:py-3.5"
+            className="btn-primary relative w-full sm:py-3.5"
           >
             Submit
           </button>

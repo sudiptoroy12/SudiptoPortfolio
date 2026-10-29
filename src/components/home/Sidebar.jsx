@@ -41,9 +41,11 @@ const Sidebar = () => {
       {/* Mobile Sidebar */}
       <motion.div
         className="fixed bottom-0 left-0 top-0 z-50
-          w-screen max-w-[400px]
-          bg-gradient-to-t from-[#79cddc7c]
-          to-[#0c11147e] backdrop-blur-sm"
+          w-screen max-w-[400px] border-r border-edge
+          bg-white/75 backdrop-blur-md
+          dark:border-transparent dark:backdrop-blur-sm
+          dark:bg-gradient-to-t dark:from-[#79cddc7c]
+          dark:to-[#0c11147e]"
         variants={variants}
       >
         <Links onLinkClick={handleLinkClick} />

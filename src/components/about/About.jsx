@@ -53,7 +53,7 @@ const About = () => {
                   <span
                     aria-hidden="true"
                     className="absolute left-[15px] top-8
-                      -bottom-10 w-px bg-black
+                      -bottom-10 w-px bg-edge
                       dark:bg-white"
                   />
                 )}
@@ -63,22 +63,19 @@ const About = () => {
                   aria-hidden="true"
                   className="boxshadow absolute left-0 top-0
                     z-10 h-8 w-8 rounded-full
-                    bg-black dark:bg-white"
+                    bg-ink dark:bg-white"
                 />
 
                 {/* Content */}
                 <h2
-                  className="mb-2 text-2xl font-bold
-                    text-black dark:bg-gradient-to-r
-                    dark:from-[#42b4cd] dark:to-white
-                    dark:bg-clip-text dark:text-transparent"
+                  className="section-title mb-2 text-2xl font-bold"
                 >
                   {item.title}
                 </h2>
 
                 <p
                   className="text-sm leading-6
-                    text-gray-700 dark:text-gray-300"
+                    text-ink-soft"
                 >
                   {item.description}
                 </p>
