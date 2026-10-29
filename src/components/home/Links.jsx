@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 
 const variants = {
@@ -14,30 +14,37 @@ const variants = {
     },
   },
 };
+
 const itemVariants = {
   open: {
-    y: -30,
+    y: 0,
     opacity: 1,
   },
-
   closed: {
     y: 60,
     opacity: 0,
   },
 };
 
-const Links = () => {
-  const items = ["Home", "About","Skill", "Projects", "Contact"];
+const Links = ({ onLinkClick }) => {
+  const items = ["Home", "About", "Skill", "Projects", "Contact"];
+
   return (
-    <motion.div className="absolute w-full h-full flex items-center justify-center flex-col gap-6  dark:text-white text-black" variants={variants}>
-      {items.map((item,index) => (
+    <motion.div
+      className="absolute flex h-full w-full
+        flex-col items-center justify-center
+        gap-6 text-black dark:text-white"
+      variants={variants}
+    >
+      {items.map((item) => (
         <motion.a
-          className="text-3xl z-20"
+          className="z-20 text-3xl"
           href={`#${item}`}
-          key={index}
+          key={item}
           variants={itemVariants}
           whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.5 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onLinkClick}
         >
           {item}
         </motion.a>
