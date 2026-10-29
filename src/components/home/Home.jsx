@@ -27,7 +27,7 @@ const Home = () => {
       <Navbar />
       <div className={`${darkMode && 'dark'}`}>
       <section
-        id="Homepage"
+        id="Home"
         className="flex h-[100vh] flex-col justify-between  overflow-hidden  "
       >
         <div className="h-28"></div>

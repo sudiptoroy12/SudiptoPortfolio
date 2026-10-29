@@ -30,7 +30,7 @@ const Navbar = () => {
   <header
         className="flex text-white  items-center justify-between px-16 mx-auto  w-full z-20 bg-[rgba(0,0,0,0.4)] fixed "
       >  <div><Sidebar/>
-      <a href="#Homepage">
+      <a href="#Home">
       <svg className="cursor-pointer w-8  mx-10 md:mx-0"
           width="50"
           height="80"
@@ -77,7 +77,7 @@ const Navbar = () => {
      
        
             <div className='md:flex hidden  text-2xl lg:text-3xl  gap-10  '>
-      <a  href='#Homepage' onClick={()=>setActiveNav('#Homepage')} className={activeNav==='#Homepage' ?'font-bold text-[#6bd3d3] scale-150' : ''}><IoHomeOutline  /></a>
+      <a  href='#Home' onClick={()=>setActiveNav('#Home')} className={activeNav==='#Home' ?'font-bold text-[#6bd3d3] scale-150' : ''}><IoHomeOutline  /></a>
       <a href='#About' onClick={()=>setActiveNav('#About')} className={activeNav==='#About' ?'font-bold text-[#6bd3d3] scale-150' : ''}><FaRegUser/></a>
       <a href='#Skill' onClick={()=>setActiveNav('#Skill')} className={activeNav==='#Skill' ?'font-bold text-[#6bd3d3] scale-150' : ''}><RiServiceLine /></a>
       <a href='#Projects' onClick={()=>setActiveNav('#Projects')} className={activeNav==='#Projects' ?'font-bold text-[#6bd3d3] scale-150' : ''}><BiBook /></a>
